@@ -61,8 +61,8 @@ while True:
       myShadowUpdateCallback, 5)
   else:
     myDeviceShadow.shadowUpdate(
-      '{"state":{"reported":{"moisture":"low"}}}',
+      '{"state":{"reported":{"moisture":"low","welcome":"Chao be Le Van Dat, em con lam o do k ta"}}}',
       myShadowUpdateCallback, 5)
 
   # Wait for this test value to be added.
-  time.sleep(5)
+  time.sleep(15)
