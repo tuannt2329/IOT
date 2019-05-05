@@ -1,6 +1,6 @@
-from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
-import random, time, sys, Adafruit_DHT
 
+from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
+import random, time
 
 # A random programmatic shadow client ID.
 SHADOW_CLIENT = "myShadowClient"
@@ -25,8 +25,6 @@ CERT_FILE = "c3291a1ce4-certificate.pem.crt.txt"
 
 # A programmatic shadow handler name prefix.
 SHADOW_HANDLER = "MyRPi"
-
-
 
 # Automatically called whenever the shadow is updated.
 def myShadowUpdateCallback(payload, responseStatus, token):
@@ -56,12 +54,16 @@ myDeviceShadow = myShadowClient.createShadowHandlerWithName(
 while True:
   # Generate random True or False test data to represent
   # okay or low moisture levels, respectively.
-  hum, tem = Adafruit_DHT.read_retry(11, 21)
-  a = str(hum)
-  b = str(tem)
-  myDeviceShadow.shadowUpdate(
-    '{"state":{"reported":{"humidity":"'+ a +'","temperature":"'+ b + '"}}}',
-    myShadowUpdateCallback, 5)
+  moisture = random.choice([True, False])
+
+  if moisture:
+    myDeviceShadow.shadowUpdate(
+      '{"state":{"reported":{"moisture":"okay"}}}',
+      myShadowUpdateCallback, 5)
+  else:
+    myDeviceShadow.shadowUpdate(
+      '{"state":{"reported":{"moisture":"low"}}}',
+      myShadowUpdateCallback, 5)
 
   # Wait for this test value to be added.
   time.sleep(5)
