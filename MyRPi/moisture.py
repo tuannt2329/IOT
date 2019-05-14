@@ -6,7 +6,7 @@ SHADOW_CLIENT = "myShadowClient"
 
 # The unique hostname that &IoT; generated for 
 # this device.
-HOST_NAME = "a7yawo6mgac2e-ats.iot.ap-southeast-1.amazonaws.com"
+HOST_NAME = "acrf1wh8dkfym-ats.iot.ap-southeast-1.amazonaws.com"
 
 # The relative path to the correct root CA file for &IoT;, 
 # which you have already saved onto this device.
@@ -15,16 +15,15 @@ ROOT_CA = "Root-CA.pem"
 # The relative path to your private key file that 
 # &IoT; generated for this device, which you 
 # have already saved onto this device.
-PRIVATE_KEY = "784ee9187f-private.pem.key"
+PRIVATE_KEY = "c3291a1ce4-private.pem.key"
 
 # The relative path to your certificate file that 
 # &IoT; generated for this device, which you 
 # have already saved onto this device.
-CERT_FILE = "784ee9187f-certificate.pem.crt.txt"
+CERT_FILE = "c3291a1ce4-certificate.pem.crt.txt"
 
 # A programmatic shadow handler name prefix.
 SHADOW_HANDLER = "MyRPi"
-
 
 
 # Automatically called whenever the shadow is updated.
